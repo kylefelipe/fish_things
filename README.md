@@ -8,7 +8,7 @@ https://fishshell.com/docs/current/cmds/alias.html
 
 ## Functions
 
- - reac_redux
+ - react_redux
 
 Essa função cria um react app na pasta, instala o redux e react-redux, e os diretórios básicos.
 
@@ -22,7 +22,7 @@ function react_redux --description "Inicia um app react e cria estrutura de past
         if test $status = 0
             echo "entrando na pasta $argv[1]"
             cd $argv[1]
-            echo "Instalando o redux e react-redux."
+            echo "Instalando o redux e react-redux."****
             npm install --save redux react-redux
             echo "Criando as pastas para o redux."
             mkdir -p src/reducer
@@ -52,6 +52,25 @@ end
 Modo de uso:  
 
   `react_redux <nome do app>`
+
+- gitclimate
+  Essa função analisa todos os arquivos que estão aguardando para serem adicionados
+
+```bash
+function gitclimate --description "Faz a análise do code climate nos arquivos editados que o git encontrou"
+    codeclimate analyze (git diff --name-only);
+end
+```
+
+No bash
+
+```bash
+gitclimate() { codeclimate analyze $( git diff --name-only ); }
+```
+
+Modo de uso:
+
+  `gitclimate`
 
 Adicionando a função ao fish:
 crie um arquivo `nome_da_funcao.fish` em `~/.config/fish/functions/` e salve a função lá dentro do arquivo.
