@@ -44,7 +44,9 @@ Modo de uso:
   ````
 
 Adicionando funções ao fish:
-Copie o arquivo desejado da pasta `functions` para a pasta do fish `~/.config/fish/functions/`.
-Reinicie o terminal para que a função funcione.
+
+Para instalar todas as funçoẽs para o fish, basta executar `install_fish.sh`.  
+Caso queira instalar funções separadas, copie o arquivo desejado da pasta `functions` para a pasta do fish `~/.config/fish/functions/`.
+Reinicie o terminal para que as funçõe funcionen.
 
 :: TODO: Fazer a função aceitar options;
