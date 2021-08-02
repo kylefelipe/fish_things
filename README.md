@@ -8,63 +8,22 @@ https://fishshell.com/docs/current/cmds/alias.html
 
 ## Functions
 
- - react_redux
-
-Essa função cria um react app na pasta, instala o redux e react-redux, e os diretórios básicos.
+- [react_redux](functions/react_redux.fish)
+  Essa função cria um react app na pasta, instala o redux e react-redux, e os diretórios básicos.
 
 https://fishshell.com/docs/current/cmds/function.html#cmd-function
-
-```bash
-function react_redux --description "Inicia um app react e cria estrutura de pastas básicas do redux. usage: react_redux nome_do_app"
-    if test $argv[1]
-        echo "Criando o app react $argv[1]."
-        command npx create-react-app $argv[1]
-        if test $status = 0
-            echo "entrando na pasta $argv[1]"
-            cd $argv[1]
-            echo "Instalando o redux e react-redux."****
-            npm install --save redux react-redux
-            echo "Criando as pastas para o redux."
-            mkdir -p src/reducer
-            mkdir -p src/actions
-            mkdir -p src/store
-            mkdir -p src/components
-            echo "Criando os arquivos index nas pastas do redux."
-            if test $status = 0
-              echo import \{ createStore \} from 'redux'\;\n >> ./src/store/index.js;
-              echo const store \= createStore\(\)\;\n >> ./src/store/index.js;
-              echo export default store\;\n >> ./src/store/index.js;
-            end
-            if test $status = 0
-              touch src/reducer/index.js
-              touch src/actions/index.js
-            end
-        end
-        echo "Abrindo o VSCode."
-        code .
-    else
-        echo "Precisa especificar o nome do APP."
-        echo "Exemplo: react_redux um_app_qualquer"
-    end
-end
-```
 
 Modo de uso:  
 
   `react_redux <nome do app>`
 
-- gitclimate
+- [gitclimate](./functions/gitclimate.fish)
   Essa função analisa todos os arquivos que estão aguardando para serem adicionados
-
-```bash
-function gitclimate --description "Faz a análise do code climate nos arquivos editados que o git encontrou"
-    codeclimate analyze (git diff --name-only);
-end
-```
 
 No bash
 
 ```bash
+# Para uso no bash, basta adicionar essa função ao bashrc
 gitclimate() { codeclimate analyze $( git diff --name-only ); }
 ```
 
@@ -72,8 +31,20 @@ Modo de uso:
 
   `gitclimate`
 
-Adicionando a função ao fish:
-crie um arquivo `nome_da_funcao.fish` em `~/.config/fish/functions/` e salve a função lá dentro do arquivo.
+- [update_gh](./functions/update_gh.fish)
+  Essa função faz o download da ferramenta cli do github na pasta downloads, precisa apenas passar a versão necessária.  
+Após o download, o arquivo será instalado via dpkg.
+O arquivo a ser baixado será o .deb na arquitetura amd64
+
+Modo de uso:
+
+  ```bash
+  # Irá instalar a versão 1.12.1 do gh
+  update_gh 1.12.1
+  ````
+
+Adicionando funções ao fish:
+Copie o arquivo desejado da pasta `functions` para a pasta do fish `~/.config/fish/functions/`.
 Reinicie o terminal para que a função funcione.
 
 :: TODO: Fazer a função aceitar options;
