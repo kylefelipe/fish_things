@@ -61,7 +61,7 @@ Modo de uso:
 activate
 ```
 
-- [ctxcd](./functions/ctxcd.fish)  
+- [ctxcd](./functions/ctxdc.fish)  
   Essa função ativa muda o contexto do docker
 
 Modo de uso:
