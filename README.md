@@ -31,7 +31,7 @@ Modo de uso:
 
   `gitclimate`
 
-- [update_gh](./functions/update_gh.fish)
+- [update_gh](./functions/update_gh.fish) [**Depreciado, gh instala via repositório**]  
   Essa função faz o download da ferramenta cli do github na pasta downloads, precisa apenas passar a versão necessária.  
 Após o download, o arquivo será instalado via dpkg.
 O arquivo a ser baixado será o .deb na arquitetura amd64
@@ -43,10 +43,42 @@ Modo de uso:
   update_gh 1.12.1
   ````
 
+- [lscd](./functions/lscd.fish)  
+  Essa função lista containers docker com menos colunas
+
+Modo de uso:
+
+```bash
+lscd
+```
+
+- [activate](./functions/activate.fish)  
+  Essa função ativa um ambiente vitual em python
+
+Modo de uso:
+
+```bash
+activate
+```
+
+- [ctxcd](./functions/ctxcd.fish)  
+  Essa função ativa muda o contexto do docker
+
+Modo de uso:
+
+```bash
+# Muda o contexto do docker para o default
+ctxdc 
+ctxdc -d
+ctxdc -default
+# Muda o contexto do docker para algum que tenha criado ex: docker-samsung
+ctxdc docker-samsung
+```
+
 Adicionando funções ao fish:
 
-Para instalar todas as funçoẽs para o fish, basta executar `install_fish.sh`.  
-Caso queira instalar funções separadas, copie o arquivo desejado da pasta `functions` para a pasta do fish `~/.config/fish/functions/`.
+Para instalar todas as funçoẽs para o fish, basta executar `install_fish.sh`, e um link das funções será criado na pasta do fish.  
+Caso queira instalar funções separadas, copie o arquivo desejado da pasta `functions` para a pasta do fish `~/.config/fish/functions/` ou crie um link do mesmo para a pastas.
 Reinicie o terminal para que as funçõe funcionen.
 
 :: TODO: Fazer a função aceitar options;
