@@ -1,6 +1,4 @@
 function pgadmin -d="Ativa ou desativa o PgAdmin localmente"
-    argparse h/help d/down -- $argv
-    or return 0
     set QT_ARGS (count $argv)
     if set -q _flag_help
         usage
@@ -8,7 +6,7 @@ function pgadmin -d="Ativa ou desativa o PgAdmin localmente"
     end
     if contains -- -h $argv; or contains -- --help $argv; or test $QT_ARGS -gt 1
         usage
-    else if contains -- -d $argv; or contains -- -down $argv
+    else if contains -- -d $argv; or contains -- --down $argv
         echo "Parando o container pgadmin"
         docker context use default
         docker stop pgadmin
@@ -22,7 +20,7 @@ end
 function usage
     echo "Start/Stop PgAdmin Docker Container
     Usage:
-    pgadmin [-d]
+    pgadmin [-d/--down]
     ex: pgadmin -> To start container pgadmin
         pgadmin -d -> To stop container pgadmin
         pgadmin -down -> To stop container pgadmin
