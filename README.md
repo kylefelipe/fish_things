@@ -75,10 +75,21 @@ ctxdc -default
 ctxdc docker-samsung
 ```
 
+- [pgadmin](./functions/pgadmin.fish)  
+  Essa função inicia ou para o container do PgAdmin localmente
+
+Modo de uso:
+
+```bash
+pgadmin # Inicia o container
+pgadmin -d # Para o container
+pgadmin -down # Para o container
+```
+
 Adicionando funções ao fish:
 
-Para instalar todas as funçoẽs para o fish, basta executar `install_fish.sh`, e um link das funções será criado na pasta do fish.  
+Para instalar todas as funções para o fish, basta executar `install_fish.sh`, e um link das funções será criado na pasta do fish.  
 Caso queira instalar funções separadas, copie o arquivo desejado da pasta `functions` para a pasta do fish `~/.config/fish/functions/` ou crie um link do mesmo para a pastas.
-Reinicie o terminal para que as funçõe funcionen.
+Reinicie o terminal para que as funções funcionen.
 
 :: TODO: Fazer a função aceitar options;
