@@ -95,6 +95,14 @@ pgadmin -d # Para o container
 pgadmin -down # Para o container
 ```
 
+- [pytq](./functions/pytq.fish)
+  Essa função ativa o ambiente virutal do python a ser utiliado nos projetos da TerraQ
+
+```bash
+pytq # Ativa o ambiente.
+deactivate # desativa o ambiente.
+```
+
 Adicionando funções ao fish:
 
 Para instalar todas as funções para o fish, basta executar `install_fish.sh`, e um link das funções será criado na pasta do fish.
