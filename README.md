@@ -70,6 +70,16 @@ activate .venv3.10
 > (.venv3.10)
 ```
 
+Ativando o shell do poetry:
+
+```bash
+activate -p
+> (.venv)
+# Ou
+activate --poetry
+> (.venv)
+```
+
 - [ctxcd](./functions/ctxdc.fish)
   Essa função ativa muda o contexto do docker
 
@@ -101,6 +111,13 @@ pgadmin -down # Para o container
 ```bash
 pytq # Ativa o ambiente.
 deactivate # desativa o ambiente.
+```
+
+- [pshell](./functions/pshell.fish)
+  Essa função ativa shell do poetry
+
+```bash
+pshell
 ```
 
 Adicionando funções ao fish:
