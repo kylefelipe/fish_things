@@ -4,6 +4,10 @@ function activate
     if contains -- -h $argv; or contains -- --help $argv
         usage
         return 1
+    else if contains -- -p $argv; or contains -- --poetry $argv
+        echo "Ativando Ambiente Virtual com Poetry"
+        poetry shell
+        return 1
     else if test $QT_ARGS = 1
         echo "Ativando python direto"
         set-python-venv $argv[1]
@@ -20,7 +24,7 @@ function set-python-venv
     echo "Ativando Ambiente Virtual2"
     set venv_name $argv[1]
     if test -d (pwd)/$venv_name
-        echo "Ambiente Virtual" $venv_name "encontrado"
+        echo "Ambiente Virtual" $venv_name encontrado
         source (pwd)/$venv_name/bin/activate.fish
         echo Activated
     else
