@@ -8,20 +8,21 @@ function activate
         echo "Ativando Ambiente Virtual com Poetry"
         poetry shell
         return 1
-    else if test $QT_ARGS = 1
+    else if test $QT_ARGS = 0
         echo "Ativando python direto"
-        set-python-venv $argv[1]
+        set-python-venv $venv_name
         return 1
     else if test $QT_ARGS -ge 1; or contains -- -p $argv; or contains -- --python $argv
         if test $QT_ARGS -ge 1
-            set venv_name $argv[2]
+            set venv_name $argv[1]
+            set-python-venv $venv_name
         end
-        set-python-venv $venv_name
+
     end
 end
 
 function set-python-venv
-    echo "Ativando Ambiente Virtual2"
+    echo "Ativando Ambiente Virtual"
     set venv_name $argv[1]
     if test -d (pwd)/$venv_name
         echo "Ambiente Virtual" $venv_name encontrado
